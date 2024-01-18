@@ -108,33 +108,39 @@
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.Size = new Size(920, 451);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // Column1
             // 
+            Column1.DataPropertyName = "ID";
             Column1.HeaderText = "#";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
             // 
             // Column2
             // 
+            Column2.DataPropertyName = "Name";
             Column2.HeaderText = "Name";
             Column2.Name = "Column2";
             Column2.ReadOnly = true;
             // 
             // Column3
             // 
+            Column3.DataPropertyName = "Reg";
             Column3.HeaderText = "Reg";
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
             // 
             // Column4
             // 
+            Column4.DataPropertyName = "Class";
             Column4.HeaderText = "Class";
             Column4.Name = "Column4";
             Column4.ReadOnly = true;
             // 
             // Column5
             // 
+            Column5.DataPropertyName = "Stream";
             Column5.HeaderText = "Stream";
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
@@ -178,8 +184,10 @@
             textBox1.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.Location = new Point(718, 23);
             textBox1.Name = "textBox1";
+            textBox1.PlaceholderText = "name";
             textBox1.Size = new Size(183, 26);
             textBox1.TabIndex = 1;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // txtSearch
             // 
@@ -218,6 +226,7 @@
             Controls.Add(panel1);
             Name = "FormStudintInfo";
             Text = "Form1";
+            Shown += FormStudintInfo_Shown;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);

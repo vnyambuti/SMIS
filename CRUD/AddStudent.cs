@@ -63,7 +63,7 @@ namespace CRUD
                 Clear();
                 
             }
-
+            _parent.Display();
 
 
 
