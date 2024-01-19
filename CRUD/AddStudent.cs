@@ -16,10 +16,24 @@ namespace CRUD
     {
 
         private readonly FormStudintInfo _parent;
+        public string id, name, @class, reg, stream;
+
+
         public StudentInfo(FormStudintInfo parent)
         {
             InitializeComponent();
             _parent = parent;
+        }
+
+
+        public void UpdateInfo()
+        {
+            label1.Text = "Update Student";
+            btnSaveStudent.Text = "Update";
+            textBoxName.Text = name;
+            textBoxReg.Text = reg;  
+            textBoxClass.Text = @class;
+            textBoxSection.Text = stream;
         }
         public  void Clear()
         {
@@ -62,6 +76,14 @@ namespace CRUD
                 DBStudent.AddStudent(std);
                 Clear();
                 
+            }
+            if (btnSaveStudent.Text == "Update")
+            {
+                Student std = new Student(textBoxName.Text.Trim(), textBoxReg.Text.Trim(), textBoxClass.Text.Trim(), textBoxSection.Text.Trim());
+
+                DBStudent.UpdateStudent(std,id);
+               
+
             }
             _parent.Display();
 

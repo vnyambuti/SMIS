@@ -96,6 +96,30 @@ namespace CRUD
                 MessageBox.Show("Mysql connection! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public static void UpdateStudent(Student std,String id)
+        {
+            try
+            {
+
+                string sql = "UPDATE  students SET Name=@Name, Reg=@Reg,Class=@Class,Stream=@Stream WHERE ID="+id;
+                object[] parameters = { new { Name = std.Name, Reg = std.Reg, Class = std.Class, Stream = std.Stream } };
+
+
+                using (var sqlConnection = new MySqlConnection(Helper.CnnVal("school")))
+                {
+
+                    sqlConnection.Execute(sql, parameters);
+                    MessageBox.Show("updated Successfully", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Mysql connection! \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 
 

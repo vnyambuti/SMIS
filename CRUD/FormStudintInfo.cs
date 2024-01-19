@@ -4,9 +4,12 @@ namespace CRUD
 {
     public partial class FormStudintInfo : Form
     {
+
+        StudentInfo form;
         public FormStudintInfo()
         {
             InitializeComponent();
+            form=new StudentInfo(this);
         }
 
         public void Display()
@@ -18,7 +21,7 @@ namespace CRUD
 
         private void btnNew_Click_1(object sender, EventArgs e)
         {
-            StudentInfo form = new StudentInfo(this);
+           form.Clear();
             form.ShowDialog();
         }
 
@@ -31,6 +34,14 @@ namespace CRUD
         {
             if (e.ColumnIndex == 0)
             {
+                form.Clear();
+                form.id = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                form.name = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+                form.reg = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+                form.@class = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+                form.stream = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                form.UpdateInfo();
+                form.ShowDialog();
 
                 return;
             }
